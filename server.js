@@ -4,6 +4,8 @@ const express = require('express');
 const routes = require('./routes');
 const cors = require('cors')
 
+const SERVER_URL = process.env.SERVER_URL;
+
 // App Set up
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +20,7 @@ app.get('/v1/', (req, res) => {
   res.send("Expense DB");
 });
 
-app.use('/v1/expenses', routes.expense);
+app.use(SERVER_URL, routes.expense);
 
 // Server
 const server = app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));

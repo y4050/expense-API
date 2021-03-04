@@ -1,4 +1,4 @@
 module.exports = {
-    expense: require('./expense')
+    expense : require('./expense')
   }
   
